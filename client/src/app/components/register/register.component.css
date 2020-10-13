@@ -1,0 +1,19 @@
+.main
+{
+    width: 300px;
+    margin: auto;
+}
+
+.main .btn
+{
+    margin: 0px 10px;
+}
+
+.error
+{
+    color: red;
+    font-size: 12px;
+}
+.example-full-width {
+    width: 100%;
+  }

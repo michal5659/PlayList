@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8b21987a525a4d5882681d592022fd06" Name="Diagram1">
+        <EntityTypeShape EntityType="PlayListModel.Class" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.Game" Width="1.5" PointX="2.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.School" Width="1.5" PointX="4.125" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.StatisticsOnStudent" Width="1.5" PointX="4" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.StudentsFeedback" Width="1.5" PointX="7.375" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.User" Width="1.5" PointX="5.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.Week" Width="1.5" PointX="2.375" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.WordCategory" Width="1.5" PointX="0.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlayListModel.Word" Width="1.5" PointX="5.625" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="PlayListModel.FK__Classes__SchoolC__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__Weeks__ClassCode__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__Statistic__GameC__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__Users__SchoolCod__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__Statistic__Stude__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__Statistic__WeekC__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__StudentsF__Stude__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__StudentsF__WordC__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__Weeks__CategoryC__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__WordCateg__Maste__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.FK__Words__CategoryC__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.ClassesForTeachers" ManuallyRouted="false" />
+        <AssociationConnector Association="PlayListModel.WordForWeek" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

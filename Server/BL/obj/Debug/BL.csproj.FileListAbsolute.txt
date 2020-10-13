@@ -1,0 +1,17 @@
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\BL.dll.config
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\BL.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\BL.pdb
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\DAL.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\DTO.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\DAL.pdb
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\DAL.dll.config
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\DTO.pdb
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\obj\Debug\BL.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\BL\obj\Debug\BL.pdb

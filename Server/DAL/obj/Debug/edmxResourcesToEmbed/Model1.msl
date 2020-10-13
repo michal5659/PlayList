@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlayListModelStoreContainer" CdmEntityContainer="PlayListEntities">
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="PlayListModel.Class">
+        <MappingFragment StoreEntitySet="Classes">
+          <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="PlayListModel.Game">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="MinAgeLayer" ColumnName="MinAgeLayer" />
+          <ScalarProperty Name="MaxAgeLayer" ColumnName="MaxAgeLayer" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="PlayListModel.School">
+        <MappingFragment StoreEntitySet="Schools">
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatisticsOnStudents">
+      <EntityTypeMapping TypeName="PlayListModel.StatisticsOnStudent">
+        <MappingFragment StoreEntitySet="StatisticsOnStudents">
+          <ScalarProperty Name="GameForStudentCode" ColumnName="GameForStudentCode" />
+          <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+          <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
+          <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Errors" ColumnName="Errors" />
+          <ScalarProperty Name="ErrorsForWord" ColumnName="ErrorsForWord" />
+          <ScalarProperty Name="NumOfSuccesses" ColumnName="NumOfSuccesses" />
+          <ScalarProperty Name="NumOfCorrections" ColumnName="NumOfCorrections" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentsFeedbacks">
+      <EntityTypeMapping TypeName="PlayListModel.StudentsFeedback">
+        <MappingFragment StoreEntitySet="StudentsFeedback">
+          <ScalarProperty Name="FeedbackCode" ColumnName="FeedbackCode" />
+          <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
+          <ScalarProperty Name="WordCode" ColumnName="WordCode" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PlayListModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weeks">
+      <EntityTypeMapping TypeName="PlayListModel.Week">
+        <MappingFragment StoreEntitySet="Weeks">
+          <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+          <ScalarProperty Name="Week1" ColumnName="Week" />
+          <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WordCategories">
+      <EntityTypeMapping TypeName="PlayListModel.WordCategory">
+        <MappingFragment StoreEntitySet="WordCategories">
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="MasterCategoryCode" ColumnName="MasterCategoryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Words">
+      <EntityTypeMapping TypeName="PlayListModel.Word">
+        <MappingFragment StoreEntitySet="Words">
+          <ScalarProperty Name="WordCode" ColumnName="WordCode" />
+          <ScalarProperty Name="Word1" ColumnName="Word" />
+          <ScalarProperty Name="HebrewTranslation" ColumnName="HebrewTranslation" />
+          <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ClassesForTeachers" TypeName="PlayListModel.ClassesForTeachers" StoreEntitySet="ClassesForTeachers">
+      <EndProperty Name="Classes">
+        <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WordForWeek" TypeName="PlayListModel.WordForWeek" StoreEntitySet="WordForWeek">
+      <EndProperty Name="Weeks">
+        <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+      </EndProperty>
+      <EndProperty Name="Words">
+        <ScalarProperty Name="WordCode" ColumnName="WordCode" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

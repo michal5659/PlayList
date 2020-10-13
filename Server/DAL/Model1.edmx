@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PlayListModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Classes">
+          <Key>
+            <PropertyRef Name="ClassCode" />
+          </Key>
+          <Property Name="ClassCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="LayerNumber" Type="int" Nullable="false" />
+          <Property Name="SchoolCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClassesForTeachers">
+          <Key>
+            <PropertyRef Name="UserCode" />
+            <PropertyRef Name="ClassCode" />
+          </Key>
+          <Property Name="UserCode" Type="int" Nullable="false" />
+          <Property Name="ClassCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="GameCode" />
+          </Key>
+          <Property Name="GameCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MinAgeLayer" Type="int" Nullable="false" />
+          <Property Name="MaxAgeLayer" Type="int" Nullable="false" />
+          <Property Name="Instructions" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schools">
+          <Key>
+            <PropertyRef Name="SchoolCode" />
+          </Key>
+          <Property Name="SchoolCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatisticsOnStudents">
+          <Key>
+            <PropertyRef Name="GameForStudentCode" />
+          </Key>
+          <Property Name="GameForStudentCode" Type="int" Nullable="false" />
+          <Property Name="WeekCode" Type="int" Nullable="false" />
+          <Property Name="StudentCode" Type="int" Nullable="false" />
+          <Property Name="GameCode" Type="int" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Errors" Type="int" />
+          <Property Name="ErrorsForWord" Type="int" />
+          <Property Name="NumOfSuccesses" Type="int" />
+          <Property Name="NumOfCorrections" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentsFeedback">
+          <Key>
+            <PropertyRef Name="FeedbackCode" />
+          </Key>
+          <Property Name="FeedbackCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentCode" Type="int" Nullable="false" />
+          <Property Name="WordCode" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserCode" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LayerNumber" Type="int" Nullable="false" />
+          <Property Name="SchoolCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Weeks">
+          <Key>
+            <PropertyRef Name="WeekCode" />
+          </Key>
+          <Property Name="WeekCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Week" Type="int" Nullable="false" />
+          <Property Name="ClassCode" Type="int" Nullable="false" />
+          <Property Name="CategoryCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WordCategories">
+          <Key>
+            <PropertyRef Name="CategoryCode" />
+          </Key>
+          <Property Name="CategoryCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="MasterCategoryCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WordForWeek">
+          <Key>
+            <PropertyRef Name="WordCode" />
+            <PropertyRef Name="WeekCode" />
+          </Key>
+          <Property Name="WordCode" Type="int" Nullable="false" />
+          <Property Name="WeekCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Words">
+          <Key>
+            <PropertyRef Name="WordCode" />
+          </Key>
+          <Property Name="WordCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Word" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="HebrewTranslation" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LayerNumber" Type="int" Nullable="false" />
+          <Property Name="CategoryCode" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Classes__SchoolC__2B3F6F97">
+          <End Role="Schools" Type="Self.Schools" Multiplicity="1" />
+          <End Role="Classes" Type="Self.Classes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schools">
+              <PropertyRef Name="SchoolCode" />
+            </Principal>
+            <Dependent Role="Classes">
+              <PropertyRef Name="SchoolCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClassesFo__Class__571DF1D5">
+          <End Role="Classes" Type="Self.Classes" Multiplicity="1" />
+          <End Role="ClassesForTeachers" Type="Self.ClassesForTeachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classes">
+              <PropertyRef Name="ClassCode" />
+            </Principal>
+            <Dependent Role="ClassesForTeachers">
+              <PropertyRef Name="ClassCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClassesFo__UserC__5629CD9C">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ClassesForTeachers" Type="Self.ClassesForTeachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="ClassesForTeachers">
+              <PropertyRef Name="UserCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Statistic__GameC__6754599E">
+          <End Role="Games" Type="Self.Games" Multiplicity="1" />
+          <End Role="StatisticsOnStudents" Type="Self.StatisticsOnStudents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="GameCode" />
+            </Principal>
+            <Dependent Role="StatisticsOnStudents">
+              <PropertyRef Name="GameCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Statistic__Stude__66603565">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="StatisticsOnStudents" Type="Self.StatisticsOnStudents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="StatisticsOnStudents">
+              <PropertyRef Name="StudentCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Statistic__WeekC__656C112C">
+          <End Role="Weeks" Type="Self.Weeks" Multiplicity="1" />
+          <End Role="StatisticsOnStudents" Type="Self.StatisticsOnStudents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weeks">
+              <PropertyRef Name="WeekCode" />
+            </Principal>
+            <Dependent Role="StatisticsOnStudents">
+              <PropertyRef Name="WeekCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsF__Stude__5EBF139D">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="StudentsFeedback" Type="Self.StudentsFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="StudentsFeedback">
+              <PropertyRef Name="StudentCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsF__WordC__5FB337D6">
+          <End Role="Words" Type="Self.Words" Multiplicity="1" />
+          <End Role="StudentsFeedback" Type="Self.StudentsFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Words">
+              <PropertyRef Name="WordCode" />
+            </Principal>
+            <Dependent Role="StudentsFeedback">
+              <PropertyRef Name="WordCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__SchoolCod__5812160E">
+          <End Role="Schools" Type="Self.Schools" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schools">
+              <PropertyRef Name="SchoolCode" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="SchoolCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Weeks__CategoryC__4AB81AF0">
+          <End Role="WordCategories" Type="Self.WordCategories" Multiplicity="1" />
+          <End Role="Weeks" Type="Self.Weeks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WordCategories">
+              <PropertyRef Name="CategoryCode" />
+            </Principal>
+            <Dependent Role="Weeks">
+              <PropertyRef Name="CategoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Weeks__ClassCode__49C3F6B7">
+          <End Role="Classes" Type="Self.Classes" Multiplicity="1" />
+          <End Role="Weeks" Type="Self.Weeks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classes">
+              <PropertyRef Name="ClassCode" />
+            </Principal>
+            <Dependent Role="Weeks">
+              <PropertyRef Name="ClassCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WordCateg__Maste__25869641">
+          <End Role="WordCategories" Type="Self.WordCategories" Multiplicity="1" />
+          <End Role="WordCategories1" Type="Self.WordCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WordCategories">
+              <PropertyRef Name="CategoryCode" />
+            </Principal>
+            <Dependent Role="WordCategories1">
+              <PropertyRef Name="MasterCategoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WordForWe__WeekC__4E88ABD4">
+          <End Role="Weeks" Type="Self.Weeks" Multiplicity="1" />
+          <End Role="WordForWeek" Type="Self.WordForWeek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weeks">
+              <PropertyRef Name="WeekCode" />
+            </Principal>
+            <Dependent Role="WordForWeek">
+              <PropertyRef Name="WeekCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WordForWe__WordC__4D94879B">
+          <End Role="Words" Type="Self.Words" Multiplicity="1" />
+          <End Role="WordForWeek" Type="Self.WordForWeek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Words">
+              <PropertyRef Name="WordCode" />
+            </Principal>
+            <Dependent Role="WordForWeek">
+              <PropertyRef Name="WordCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__CategoryC__33D4B598">
+          <End Role="WordCategories" Type="Self.WordCategories" Multiplicity="1" />
+          <End Role="Words" Type="Self.Words" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WordCategories">
+              <PropertyRef Name="CategoryCode" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="CategoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PlayListModelStoreContainer">
+          <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassesForTeachers" EntityType="Self.ClassesForTeachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatisticsOnStudents" EntityType="Self.StatisticsOnStudents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsFeedback" EntityType="Self.StudentsFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weeks" EntityType="Self.Weeks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WordCategories" EntityType="Self.WordCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WordForWeek" EntityType="Self.WordForWeek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Words" EntityType="Self.Words" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Classes__SchoolC__2B3F6F97" Association="Self.FK__Classes__SchoolC__2B3F6F97">
+            <End Role="Schools" EntitySet="Schools" />
+            <End Role="Classes" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClassesFo__Class__571DF1D5" Association="Self.FK__ClassesFo__Class__571DF1D5">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="ClassesForTeachers" EntitySet="ClassesForTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClassesFo__UserC__5629CD9C" Association="Self.FK__ClassesFo__UserC__5629CD9C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ClassesForTeachers" EntitySet="ClassesForTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Statistic__GameC__6754599E" Association="Self.FK__Statistic__GameC__6754599E">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="StatisticsOnStudents" EntitySet="StatisticsOnStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Statistic__Stude__66603565" Association="Self.FK__Statistic__Stude__66603565">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StatisticsOnStudents" EntitySet="StatisticsOnStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Statistic__WeekC__656C112C" Association="Self.FK__Statistic__WeekC__656C112C">
+            <End Role="Weeks" EntitySet="Weeks" />
+            <End Role="StatisticsOnStudents" EntitySet="StatisticsOnStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsF__Stude__5EBF139D" Association="Self.FK__StudentsF__Stude__5EBF139D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StudentsFeedback" EntitySet="StudentsFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsF__WordC__5FB337D6" Association="Self.FK__StudentsF__WordC__5FB337D6">
+            <End Role="Words" EntitySet="Words" />
+            <End Role="StudentsFeedback" EntitySet="StudentsFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__SchoolCod__5812160E" Association="Self.FK__Users__SchoolCod__5812160E">
+            <End Role="Schools" EntitySet="Schools" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Weeks__CategoryC__4AB81AF0" Association="Self.FK__Weeks__CategoryC__4AB81AF0">
+            <End Role="WordCategories" EntitySet="WordCategories" />
+            <End Role="Weeks" EntitySet="Weeks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Weeks__ClassCode__49C3F6B7" Association="Self.FK__Weeks__ClassCode__49C3F6B7">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="Weeks" EntitySet="Weeks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WordCateg__Maste__25869641" Association="Self.FK__WordCateg__Maste__25869641">
+            <End Role="WordCategories" EntitySet="WordCategories" />
+            <End Role="WordCategories1" EntitySet="WordCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WordForWe__WeekC__4E88ABD4" Association="Self.FK__WordForWe__WeekC__4E88ABD4">
+            <End Role="Weeks" EntitySet="Weeks" />
+            <End Role="WordForWeek" EntitySet="WordForWeek" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WordForWe__WordC__4D94879B" Association="Self.FK__WordForWe__WordC__4D94879B">
+            <End Role="Words" EntitySet="Words" />
+            <End Role="WordForWeek" EntitySet="WordForWeek" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__CategoryC__33D4B598" Association="Self.FK__Words__CategoryC__33D4B598">
+            <End Role="WordCategories" EntitySet="WordCategories" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PlayListModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ClassCode" />
+          </Key>
+          <Property Name="ClassCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LayerNumber" Type="Int32" Nullable="false" />
+          <Property Name="SchoolCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="School" Relationship="Self.FK__Classes__SchoolC__2B3F6F97" FromRole="Classes" ToRole="Schools" />
+          <NavigationProperty Name="Weeks" Relationship="Self.FK__Weeks__ClassCode__49C3F6B7" FromRole="Classes" ToRole="Weeks" />
+          <NavigationProperty Name="Users" Relationship="Self.ClassesForTeachers" FromRole="Classes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="GameCode" />
+          </Key>
+          <Property Name="GameCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MinAgeLayer" Type="Int32" Nullable="false" />
+          <Property Name="MaxAgeLayer" Type="Int32" Nullable="false" />
+          <Property Name="Instructions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="StatisticsOnStudents" Relationship="Self.FK__Statistic__GameC__6754599E" FromRole="Games" ToRole="StatisticsOnStudents" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolCode" />
+          </Key>
+          <Property Name="SchoolCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="Self.FK__Classes__SchoolC__2B3F6F97" FromRole="Schools" ToRole="Classes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__SchoolCod__5812160E" FromRole="Schools" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="StatisticsOnStudent">
+          <Key>
+            <PropertyRef Name="GameForStudentCode" />
+          </Key>
+          <Property Name="GameForStudentCode" Type="Int32" Nullable="false" />
+          <Property Name="WeekCode" Type="Int32" Nullable="false" />
+          <Property Name="StudentCode" Type="Int32" Nullable="false" />
+          <Property Name="GameCode" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Errors" Type="Int32" />
+          <Property Name="ErrorsForWord" Type="Int32" />
+          <Property Name="NumOfSuccesses" Type="Int32" />
+          <Property Name="NumOfCorrections" Type="Int32" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__Statistic__GameC__6754599E" FromRole="StatisticsOnStudents" ToRole="Games" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Statistic__Stude__66603565" FromRole="StatisticsOnStudents" ToRole="Users" />
+          <NavigationProperty Name="Week" Relationship="Self.FK__Statistic__WeekC__656C112C" FromRole="StatisticsOnStudents" ToRole="Weeks" />
+        </EntityType>
+        <EntityType Name="StudentsFeedback">
+          <Key>
+            <PropertyRef Name="FeedbackCode" />
+          </Key>
+          <Property Name="FeedbackCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentCode" Type="Int32" Nullable="false" />
+          <Property Name="WordCode" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__StudentsF__Stude__5EBF139D" FromRole="StudentsFeedback" ToRole="Users" />
+          <NavigationProperty Name="Word" Relationship="Self.FK__StudentsF__WordC__5FB337D6" FromRole="StudentsFeedback" ToRole="Words" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LayerNumber" Type="Int32" Nullable="false" />
+          <Property Name="SchoolCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="School" Relationship="Self.FK__Users__SchoolCod__5812160E" FromRole="Users" ToRole="Schools" />
+          <NavigationProperty Name="StatisticsOnStudents" Relationship="Self.FK__Statistic__Stude__66603565" FromRole="Users" ToRole="StatisticsOnStudents" />
+          <NavigationProperty Name="StudentsFeedbacks" Relationship="Self.FK__StudentsF__Stude__5EBF139D" FromRole="Users" ToRole="StudentsFeedback" />
+          <NavigationProperty Name="Classes" Relationship="Self.ClassesForTeachers" FromRole="Users" ToRole="Classes" />
+        </EntityType>
+        <EntityType Name="Week">
+          <Key>
+            <PropertyRef Name="WeekCode" />
+          </Key>
+          <Property Name="WeekCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Week1" Type="Int32" Nullable="false" />
+          <Property Name="ClassCode" Type="Int32" Nullable="false" />
+          <Property Name="CategoryCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK__Weeks__ClassCode__49C3F6B7" FromRole="Weeks" ToRole="Classes" />
+          <NavigationProperty Name="StatisticsOnStudents" Relationship="Self.FK__Statistic__WeekC__656C112C" FromRole="Weeks" ToRole="StatisticsOnStudents" />
+          <NavigationProperty Name="WordCategory" Relationship="Self.FK__Weeks__CategoryC__4AB81AF0" FromRole="Weeks" ToRole="WordCategories" />
+          <NavigationProperty Name="Words" Relationship="Self.WordForWeek" FromRole="Weeks" ToRole="Words" />
+        </EntityType>
+        <EntityType Name="WordCategory">
+          <Key>
+            <PropertyRef Name="CategoryCode" />
+          </Key>
+          <Property Name="CategoryCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MasterCategoryCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Weeks" Relationship="Self.FK__Weeks__CategoryC__4AB81AF0" FromRole="WordCategories" ToRole="Weeks" />
+          <NavigationProperty Name="WordCategories1" Relationship="Self.FK__WordCateg__Maste__25869641" FromRole="WordCategories" ToRole="WordCategories1" />
+          <NavigationProperty Name="WordCategory1" Relationship="Self.FK__WordCateg__Maste__25869641" FromRole="WordCategories1" ToRole="WordCategories" />
+          <NavigationProperty Name="Words" Relationship="Self.FK__Words__CategoryC__33D4B598" FromRole="WordCategories" ToRole="Words" />
+        </EntityType>
+        <EntityType Name="Word">
+          <Key>
+            <PropertyRef Name="WordCode" />
+          </Key>
+          <Property Name="WordCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Word1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HebrewTranslation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LayerNumber" Type="Int32" Nullable="false" />
+          <Property Name="CategoryCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentsFeedbacks" Relationship="Self.FK__StudentsF__WordC__5FB337D6" FromRole="Words" ToRole="StudentsFeedback" />
+          <NavigationProperty Name="WordCategory" Relationship="Self.FK__Words__CategoryC__33D4B598" FromRole="Words" ToRole="WordCategories" />
+          <NavigationProperty Name="Weeks" Relationship="Self.WordForWeek" FromRole="Words" ToRole="Weeks" />
+        </EntityType>
+        <Association Name="FK__Classes__SchoolC__2B3F6F97">
+          <End Role="Schools" Type="Self.School" Multiplicity="1" />
+          <End Role="Classes" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schools">
+              <PropertyRef Name="SchoolCode" />
+            </Principal>
+            <Dependent Role="Classes">
+              <PropertyRef Name="SchoolCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Weeks__ClassCode__49C3F6B7">
+          <End Role="Classes" Type="Self.Class" Multiplicity="1" />
+          <End Role="Weeks" Type="Self.Week" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classes">
+              <PropertyRef Name="ClassCode" />
+            </Principal>
+            <Dependent Role="Weeks">
+              <PropertyRef Name="ClassCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Statistic__GameC__6754599E">
+          <End Role="Games" Type="Self.Game" Multiplicity="1" />
+          <End Role="StatisticsOnStudents" Type="Self.StatisticsOnStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="GameCode" />
+            </Principal>
+            <Dependent Role="StatisticsOnStudents">
+              <PropertyRef Name="GameCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__SchoolCod__5812160E">
+          <End Role="Schools" Type="Self.School" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schools">
+              <PropertyRef Name="SchoolCode" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="SchoolCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Statistic__Stude__66603565">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="StatisticsOnStudents" Type="Self.StatisticsOnStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="StatisticsOnStudents">
+              <PropertyRef Name="StudentCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Statistic__WeekC__656C112C">
+          <End Role="Weeks" Type="Self.Week" Multiplicity="1" />
+          <End Role="StatisticsOnStudents" Type="Self.StatisticsOnStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weeks">
+              <PropertyRef Name="WeekCode" />
+            </Principal>
+            <Dependent Role="StatisticsOnStudents">
+              <PropertyRef Name="WeekCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsF__Stude__5EBF139D">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="StudentsFeedback" Type="Self.StudentsFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="StudentsFeedback">
+              <PropertyRef Name="StudentCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsF__WordC__5FB337D6">
+          <End Role="Words" Type="Self.Word" Multiplicity="1" />
+          <End Role="StudentsFeedback" Type="Self.StudentsFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Words">
+              <PropertyRef Name="WordCode" />
+            </Principal>
+            <Dependent Role="StudentsFeedback">
+              <PropertyRef Name="WordCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Weeks__CategoryC__4AB81AF0">
+          <End Role="WordCategories" Type="Self.WordCategory" Multiplicity="1" />
+          <End Role="Weeks" Type="Self.Week" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WordCategories">
+              <PropertyRef Name="CategoryCode" />
+            </Principal>
+            <Dependent Role="Weeks">
+              <PropertyRef Name="CategoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WordCateg__Maste__25869641">
+          <End Role="WordCategories" Type="Self.WordCategory" Multiplicity="1" />
+          <End Role="WordCategories1" Type="Self.WordCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WordCategories">
+              <PropertyRef Name="CategoryCode" />
+            </Principal>
+            <Dependent Role="WordCategories1">
+              <PropertyRef Name="MasterCategoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Words__CategoryC__33D4B598">
+          <End Role="WordCategories" Type="Self.WordCategory" Multiplicity="1" />
+          <End Role="Words" Type="Self.Word" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WordCategories">
+              <PropertyRef Name="CategoryCode" />
+            </Principal>
+            <Dependent Role="Words">
+              <PropertyRef Name="CategoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassesForTeachers">
+          <End Role="Classes" Type="Self.Class" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="WordForWeek">
+          <End Role="Weeks" Type="Self.Week" Multiplicity="*" />
+          <End Role="Words" Type="Self.Word" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PlayListEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Classes" EntityType="Self.Class" />
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="Schools" EntityType="Self.School" />
+          <EntitySet Name="StatisticsOnStudents" EntityType="Self.StatisticsOnStudent" />
+          <EntitySet Name="StudentsFeedbacks" EntityType="Self.StudentsFeedback" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Weeks" EntityType="Self.Week" />
+          <EntitySet Name="WordCategories" EntityType="Self.WordCategory" />
+          <EntitySet Name="Words" EntityType="Self.Word" />
+          <AssociationSet Name="FK__Classes__SchoolC__2B3F6F97" Association="Self.FK__Classes__SchoolC__2B3F6F97">
+            <End Role="Schools" EntitySet="Schools" />
+            <End Role="Classes" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Weeks__ClassCode__49C3F6B7" Association="Self.FK__Weeks__ClassCode__49C3F6B7">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="Weeks" EntitySet="Weeks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Statistic__GameC__6754599E" Association="Self.FK__Statistic__GameC__6754599E">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="StatisticsOnStudents" EntitySet="StatisticsOnStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__SchoolCod__5812160E" Association="Self.FK__Users__SchoolCod__5812160E">
+            <End Role="Schools" EntitySet="Schools" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Statistic__Stude__66603565" Association="Self.FK__Statistic__Stude__66603565">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StatisticsOnStudents" EntitySet="StatisticsOnStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Statistic__WeekC__656C112C" Association="Self.FK__Statistic__WeekC__656C112C">
+            <End Role="Weeks" EntitySet="Weeks" />
+            <End Role="StatisticsOnStudents" EntitySet="StatisticsOnStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsF__Stude__5EBF139D" Association="Self.FK__StudentsF__Stude__5EBF139D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StudentsFeedback" EntitySet="StudentsFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsF__WordC__5FB337D6" Association="Self.FK__StudentsF__WordC__5FB337D6">
+            <End Role="Words" EntitySet="Words" />
+            <End Role="StudentsFeedback" EntitySet="StudentsFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Weeks__CategoryC__4AB81AF0" Association="Self.FK__Weeks__CategoryC__4AB81AF0">
+            <End Role="WordCategories" EntitySet="WordCategories" />
+            <End Role="Weeks" EntitySet="Weeks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WordCateg__Maste__25869641" Association="Self.FK__WordCateg__Maste__25869641">
+            <End Role="WordCategories" EntitySet="WordCategories" />
+            <End Role="WordCategories1" EntitySet="WordCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Words__CategoryC__33D4B598" Association="Self.FK__Words__CategoryC__33D4B598">
+            <End Role="WordCategories" EntitySet="WordCategories" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="ClassesForTeachers" Association="Self.ClassesForTeachers">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="WordForWeek" Association="Self.WordForWeek">
+            <End Role="Weeks" EntitySet="Weeks" />
+            <End Role="Words" EntitySet="Words" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PlayListModelStoreContainer" CdmEntityContainer="PlayListEntities">
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="PlayListModel.Class">
+              <MappingFragment StoreEntitySet="Classes">
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="PlayListModel.Game">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="MinAgeLayer" ColumnName="MinAgeLayer" />
+                <ScalarProperty Name="MaxAgeLayer" ColumnName="MaxAgeLayer" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="PlayListModel.School">
+              <MappingFragment StoreEntitySet="Schools">
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatisticsOnStudents">
+            <EntityTypeMapping TypeName="PlayListModel.StatisticsOnStudent">
+              <MappingFragment StoreEntitySet="StatisticsOnStudents">
+                <ScalarProperty Name="GameForStudentCode" ColumnName="GameForStudentCode" />
+                <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+                <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
+                <ScalarProperty Name="GameCode" ColumnName="GameCode" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Errors" ColumnName="Errors" />
+                <ScalarProperty Name="ErrorsForWord" ColumnName="ErrorsForWord" />
+                <ScalarProperty Name="NumOfSuccesses" ColumnName="NumOfSuccesses" />
+                <ScalarProperty Name="NumOfCorrections" ColumnName="NumOfCorrections" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsFeedbacks">
+            <EntityTypeMapping TypeName="PlayListModel.StudentsFeedback">
+              <MappingFragment StoreEntitySet="StudentsFeedback">
+                <ScalarProperty Name="FeedbackCode" ColumnName="FeedbackCode" />
+                <ScalarProperty Name="StudentCode" ColumnName="StudentCode" />
+                <ScalarProperty Name="WordCode" ColumnName="WordCode" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PlayListModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weeks">
+            <EntityTypeMapping TypeName="PlayListModel.Week">
+              <MappingFragment StoreEntitySet="Weeks">
+                <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+                <ScalarProperty Name="Week1" ColumnName="Week" />
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WordCategories">
+            <EntityTypeMapping TypeName="PlayListModel.WordCategory">
+              <MappingFragment StoreEntitySet="WordCategories">
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="MasterCategoryCode" ColumnName="MasterCategoryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Words">
+            <EntityTypeMapping TypeName="PlayListModel.Word">
+              <MappingFragment StoreEntitySet="Words">
+                <ScalarProperty Name="WordCode" ColumnName="WordCode" />
+                <ScalarProperty Name="Word1" ColumnName="Word" />
+                <ScalarProperty Name="HebrewTranslation" ColumnName="HebrewTranslation" />
+                <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ClassesForTeachers" TypeName="PlayListModel.ClassesForTeachers" StoreEntitySet="ClassesForTeachers">
+            <EndProperty Name="Classes">
+              <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="WordForWeek" TypeName="PlayListModel.WordForWeek" StoreEntitySet="WordForWeek">
+            <EndProperty Name="Weeks">
+              <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+            </EndProperty>
+            <EndProperty Name="Words">
+              <ScalarProperty Name="WordCode" ColumnName="WordCode" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
