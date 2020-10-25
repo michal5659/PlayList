@@ -17,7 +17,6 @@ namespace BL
                 User user = Converters.UserConverter.ConvertUserToDAL(teacher);
                 db.Users.Add(user);
                 db.SaveChanges();
-                int a = 1;
                 return user.UserCode;
             }
         }

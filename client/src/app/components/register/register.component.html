@@ -1,62 +1,54 @@
 <div class="main">     
-    <form [formGroup]="registerForm"  (ngSubmit)="register()">        
-        <div class="form-group">             
-            <label>שם פרטי:</label>             
-            <input type="text" class="form-control" formControlName="firstName">             
-            <div class="error" *ngIf="registerForm.controls['firstName'].errors!=null"> שדה נדרש </div>
-        </div> 
-        <div class="form-group">             
-            <label>שם משפחה:</label>             
-            <input type="text" class="form-control" formControlName="lastName">             
-            <div class="error" *ngIf="registerForm.controls['lastName'].errors!=null"> שדה נדרש </div>
-        </div> 
-        <div class="form-group">             
-            <label>ת"ז:</label>             
-            <input type="text" class="form-control" formControlName="id">             
-            <div class="error" *ngIf="registerForm.controls['id'].errors!=null"> שדה נדרש </div>
-        </div> 
-        <div class="form-group">             
-            <label>סיסמה:</label>             
-            <input type="text" class="form-control" formControlName="password">             
-            <div class="error" *ngIf="registerForm.controls['password'].errors!=null"> שדה נדרש </div>
-        </div> 
-        <div class="form-group">             
-            <label>אישור סיסמא:</label>             
-            <input type="text" class="form-control" formControlName="confirmPassword">             
-            <div class="error" *ngIf="registerForm.controls['confirmPassword'].errors!=null"> שדה נדרש </div>
-        </div> 
-        <div class="form-group">             
-            <label>מייל:</label>             
-            <input type="text" class="form-control" formControlName="email">             
-            <div class="error" *ngIf="registerForm.controls['email'].errors!=null"> שדה נדרש </div>
-        </div> 
-        <div class="form-group">             
-            <label>בית ספר:</label>             
-            <input type="text" class="form-control" formControlName="schoolCode">             
-            <div class="error" *ngIf="registerForm.controls['schoolCode'].errors!=null"> שדה נדרש </div>
-        </div> 
-        <div class="form-group">             
-            <label>שכבה:</label>             
-            <input type="text" class="form-control" formControlName="layerNumber">                  
-        </div> 
+    <form [formGroup]="registerForm"  (ngSubmit)="register()">                     
+            <mat-form-field class="example-full-width">
+                <mat-label>שם פרטי:</mat-label>
+                <input formControlName="firstName" matInput>
+            </mat-form-field>
 
-    
+            <mat-form-field class="example-full-width">
+                <mat-label>שם משפחה:</mat-label>
+                <input formControlName="lastName" matInput>
+            </mat-form-field> 
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>ת"ז:</mat-label>
+                <input formControlName="id" matInput>
+            </mat-form-field>
 
-    <div>             
-        <input type="submit" class="btn btn-success" value="הרשמה">                  
+            <mat-form-field class="example-full-width">
+                <mat-label>סיסמה:</mat-label>
+                <input formControlName="password" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>אישור סיסמה:</mat-label>
+                <input formControlName="confirmPassword" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>מייל:</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>בית ספר:</mat-label>
+                <input formControlName="schoolCode" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>שכבה:</mat-label>
+                <input formControlName="layerNumber" matInput>
+            </mat-form-field>
+    <div>
+        <button type="submit" mat-raised-button>הרשמה</button>                               
     </div> 
-
-
-    <mat-form-field class="example-full-width">
-        <mat-label>Favorite food</mat-label>
-        <input matInput placeholder="Ex. Pizza" value="Pizza">
-      </mat-form-field>
-    
-      <mat-form-field class="example-full-width">
-        <mat-label>Leave a comment</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-      </mat-form-field>
     </form> 
+</div>
 
 
 

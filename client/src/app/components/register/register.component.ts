@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/shared/models/user.model';
 import { UserService } from 'src/app/shared/services/user.service';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +14,12 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   teacher:User=new User();
+
+  myControl = new FormControl();
+  options: string[] = ['1', '2', '3'];
+  filteredOptions: Observable<string[]>;
+
+  hide = true;
 
   constructor(private userService:UserService) { 
     this.registerForm = new FormGroup({      
@@ -27,7 +35,17 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );   
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
   register()
