@@ -32,5 +32,7 @@ namespace BL.Converters
         {
             return schools.Select(s => ConvertSchoolToDTO(s)).ToList();
         }
+
+
     }
 }

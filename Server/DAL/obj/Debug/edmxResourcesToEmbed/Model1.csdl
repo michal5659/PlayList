@@ -71,12 +71,13 @@
     <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LayerNumber" Type="Int32" Nullable="false" />
+    <Property Name="LayerNumber" Type="Int32" />
     <Property Name="SchoolCode" Type="Int32" Nullable="false" />
     <NavigationProperty Name="School" Relationship="Self.FK__Users__SchoolCod__5812160E" FromRole="Users" ToRole="Schools" />
     <NavigationProperty Name="StatisticsOnStudents" Relationship="Self.FK__Statistic__Stude__66603565" FromRole="Users" ToRole="StatisticsOnStudents" />
     <NavigationProperty Name="StudentsFeedbacks" Relationship="Self.FK__StudentsF__Stude__5EBF139D" FromRole="Users" ToRole="StudentsFeedback" />
     <NavigationProperty Name="Classes" Relationship="Self.ClassesForTeachers" FromRole="Users" ToRole="Classes" />
+    <NavigationProperty Name="Teacher" Relationship="PlayListModel.FK__Teachers__Teache__02FC7413" FromRole="User" ToRole="Teacher" />
   </EntityType>
   <EntityType Name="Week">
     <Key>
@@ -318,5 +319,29 @@
       <End Role="Weeks" EntitySet="Weeks" />
       <End Role="Words" EntitySet="Words" />
     </AssociationSet>
+    <EntitySet Name="Teachers" EntityType="PlayListModel.Teacher" />
+    <AssociationSet Name="FK__Teachers__Teache__02FC7413" Association="PlayListModel.FK__Teachers__Teache__02FC7413">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Teacher" EntitySet="Teachers" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherCode" />
+    </Key>
+    <Property Name="TeacherCode" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="PlayListModel.FK__Teachers__Teache__02FC7413" FromRole="Teacher" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__Teachers__Teache__02FC7413">
+    <End Type="PlayListModel.User" Role="User" Multiplicity="1" />
+    <End Type="PlayListModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserCode" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="TeacherCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -16,5 +16,6 @@ namespace DTO
         public string Email { get; set; }
         public int LayerNumber { get; set; }
         public int SchoolCode { get; set; }
+        public bool IsTeacher { get; set; }
     }
 }

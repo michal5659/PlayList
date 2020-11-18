@@ -80,3 +80,12 @@ C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\System.Web.Cors.dll
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\System.Web.Http.Cors.dll
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\System.Web.Http.Cors.xml
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\NPOI.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\BouncyCastle.Crypto.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\ICSharpCode.SharpZipLib.pdb
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\ICSharpCode.SharpZipLib.xml
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\BouncyCastle.Crypto.xml
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\NPOI.OOXML.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\NPOI.OpenXml4Net.dll
+C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\API\bin\NPOI.OpenXmlFormats.dll

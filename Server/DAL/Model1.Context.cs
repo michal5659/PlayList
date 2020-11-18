@@ -34,5 +34,6 @@ namespace DAL
         public virtual DbSet<Week> Weeks { get; set; }
         public virtual DbSet<WordCategory> WordCategories { get; set; }
         public virtual DbSet<Word> Words { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
     }
 }

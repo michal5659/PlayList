@@ -116,5 +116,12 @@
         <ScalarProperty Name="WordCode" ColumnName="WordCode" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="PlayListModel.Teacher">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="TeacherCode" ColumnName="TeacherCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

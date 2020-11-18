@@ -28,7 +28,7 @@ namespace DAL
         public string ID { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public int LayerNumber { get; set; }
+        public Nullable<int> LayerNumber { get; set; }
         public int SchoolCode { get; set; }
     
         public virtual School School { get; set; }
@@ -38,5 +38,6 @@ namespace DAL
         public virtual ICollection<StudentsFeedback> StudentsFeedbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
+        public virtual Teacher Teacher { get; set; }
     }
 }

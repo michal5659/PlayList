@@ -1,0 +1,27 @@
+.hendRegister
+{
+    width: 300px;
+    margin: 50px;
+    margin-right: 330px;
+    margin-left: 80px;
+    float: right;
+}
+
+.autoRegister
+{
+    float: none;
+    margin: 100px;
+}
+
+.example-full-width 
+{
+    width: 100%;
+    text-align: right;
+}
+
+.example-form 
+{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+} 

@@ -27,6 +27,8 @@
         <AssociationConnector Association="PlayListModel.FK__Words__CategoryC__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="PlayListModel.ClassesForTeachers" ManuallyRouted="false" />
         <AssociationConnector Association="PlayListModel.WordForWeek" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PlayListModel.Teacher" Width="1.5" PointX="8.125" PointY="4.875" />
+        <AssociationConnector Association="PlayListModel.FK__Teachers__Teache__02FC7413" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

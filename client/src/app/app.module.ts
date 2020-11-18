@@ -6,9 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { WordComponent } from './components/word/word.component';
-import { RegistrConfirmComponent } from './components/registr-confirm/registr-confirm.component';
 import { GameComponent } from './components/game/game.component';
-import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {A11yModule} from '@angular/cdk/a11y';
@@ -54,15 +52,30 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { HomeComponent } from './components/home/home.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { StudentMainComponent } from './components/student-main/student-main.component';
+import { TeacherMainComponent } from './components/teacher-main/teacher-main.component';
+import { RegisterConfirmComponent } from './components/register-confirm/register-confirm.component';
+import { RegisterStudentComponent } from './components/register-student/register-student.component';
+import { StudentsDetailsComponent } from './components/students-details/students-details.component';
+import { StudentsComponent } from './components/students/students.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     WordComponent,
-    RegistrConfirmComponent,
-    GameComponent,
-    StudentDetailsComponent
+    HomeComponent,
+    StatisticsComponent,
+    StudentMainComponent,
+    TeacherMainComponent,
+    RegisterConfirmComponent,
+    RegisterStudentComponent,
+    StudentsDetailsComponent,
+    StudentsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

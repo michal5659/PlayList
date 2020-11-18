@@ -1,0 +1,54 @@
+<div class="hendRegister">
+    <form [formGroup]="studentRegisterForm"  (ngSubmit)="register()">                     
+        <mat-form-field class="example-full-width">
+            <mat-label>שם פרטי:</mat-label>
+            <input formControlName="firstName" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>שם משפחה:</mat-label>
+            <input formControlName="lastName" matInput>
+        </mat-form-field> 
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>ת"ז:</mat-label>
+            <input formControlName="id" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>סיסמה:</mat-label>
+            <input formControlName="password" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>אישור סיסמה:</mat-label>
+            <input formControlName="confirmPassword" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>מייל:</mat-label>
+            <input formControlName="email" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>בית ספר:</mat-label>
+            <input formControlName="schoolCode" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>שכבה:</mat-label>
+            <input formControlName="layerNumber" matInput>
+        </mat-form-field>
+<div>
+    <button type="submit" mat-raised-button>הרשמה </button>                               
+</div> 
+</form> 
+</div>
+<div class="autoRegister">
+    <input type="file" accept=".xls,.xlsx" #students (change)="uploadFile(students)">
+</div>

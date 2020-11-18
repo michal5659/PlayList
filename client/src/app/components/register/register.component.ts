@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/shared/models/user.model';
 import { UserService } from 'src/app/shared/services/user.service';
 import {map, startWith} from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { School } from 'src/app/shared/models/school.model';
+import { SchoolService } from 'src/app/shared/services/school.service';
 
 @Component({
   selector: 'app-register',
@@ -14,14 +17,15 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   teacher:User=new User();
+  schoolList:School[]=[];
 
   myControl = new FormControl();
-  options: string[] = ['1', '2', '3'];
-  filteredOptions: Observable<string[]>;
-
+  
+  filteredOptions: Observable<School[]>;
+  allSchools:School[]=[];
   hide = true;
 
-  constructor(private userService:UserService) { 
+  constructor(private userService:UserService,private schoolService: SchoolService, private router: Router) { 
     this.registerForm = new FormGroup({      
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -36,32 +40,45 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );   
-  }
+    this.getListOfSchool();
+  //     this.myControl.valueChanges.pipe(
+  //     map(value => this._filter(value))
+  //   ).subscribe(res=>this.schoolList=res);   
+   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+   _filter(value: string) {
+    
 
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    this.schoolList= this.allSchools.filter(option => option.SchoolName.indexOf(value) === 0);
   }
 
   register()
   {
-    this.teacher.UserCode=this.registerForm.controls.id.value;
-    this.teacher.FirstName=this.registerForm.controls.firstName.value;
-    this.teacher.LastName=this.registerForm.controls.lastName.value;
-    this.teacher.ID=this.registerForm.controls.id.value;
-    this.teacher.Password=this.registerForm.controls.password.value;
-    this.teacher.Email=this.registerForm.controls.email.value;
-    this.teacher.LayerNumber=this.registerForm.controls.layerNumber.value;
-    this.teacher.SchoolCode=this.registerForm.controls.schoolCode.value;
-    this.userService.registerTeacher(this.teacher).subscribe(
-res=>
-alert(res)
-    )
+    if(this.registerForm.valid)
+    {
+      this.teacher.UserCode=this.registerForm.controls.id.value;
+      this.teacher.FirstName=this.registerForm.controls.firstName.value;
+      this.teacher.LastName=this.registerForm.controls.lastName.value;
+      this.teacher.ID=this.registerForm.controls.id.value;
+      this.teacher.Password=this.registerForm.controls.password.value;
+      this.teacher.Email=this.registerForm.controls.email.value;
+      this.teacher.LayerNumber=this.registerForm.controls.layerNumber.value;
+      this.teacher.SchoolCode=this.registerForm.controls.schoolCode.value;
+      this.userService.registerTeacher(this.teacher).subscribe(
+        res=>alert(res)
+      )
+      this.router.navigate(['/teacherMain']);
+    }
+    else
+    {
+      alert('יש למלא את כל הפרטים')
+    }
+
   }
 
+  getListOfSchool()
+  {
+   this.filteredOptions=  this.schoolService.schoolList()
+   this.schoolService.schoolList().subscribe(res=>{this.allSchools=res; this._filter("")})
+  }
 }

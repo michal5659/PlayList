@@ -32,10 +32,10 @@
 
             <mat-form-field class="example-full-width">
                 <mat-label>בית ספר:</mat-label>
-                <input formControlName="schoolCode" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                      {{option}}
+                <input formControlName="schoolCode" #name matInput [formControl]="myControl" [matAutocomplete]="auto" (input)="_filter(name.value)">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+                    <mat-option *ngFor="let option of schoolList" [value]="option.SchoolCode" >
+                      {{option.SchoolName}}
                     </mat-option>
                   </mat-autocomplete>
             </mat-form-field>
@@ -45,7 +45,7 @@
                 <input formControlName="layerNumber" matInput>
             </mat-form-field>
     <div>
-        <button type="submit" mat-raised-button>הרשמה</button>                               
+        <button type="submit" mat-raised-button>הרשמה </button>                               
     </div> 
     </form> 
 </div>

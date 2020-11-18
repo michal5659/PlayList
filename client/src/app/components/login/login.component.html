@@ -1,0 +1,16 @@
+<div class="main">
+    <form [formGroup]="loginForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>שם משתמש:</mat-label>
+            <input formControlName="userName" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>סיסמה:</mat-label>
+            <input formControlName="password" matInput>
+        </mat-form-field>
+        <div>
+            <button type="submit" mat-raised-button>כניסה</button>                               
+        </div> 
+    </form>
+</div>
