@@ -8,4 +8,5 @@ export class User
     Email: string
     LayerNumber: number
     SchoolCode: number
+    IsTeacher:boolean
 }

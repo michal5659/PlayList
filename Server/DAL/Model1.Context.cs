@@ -30,10 +30,11 @@ namespace DAL
         public virtual DbSet<School> Schools { get; set; }
         public virtual DbSet<StatisticsOnStudent> StatisticsOnStudents { get; set; }
         public virtual DbSet<StudentsFeedback> StudentsFeedbacks { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<Week> Weeks { get; set; }
         public virtual DbSet<WordCategory> WordCategories { get; set; }
+        public virtual DbSet<WordError> WordErrors { get; set; }
         public virtual DbSet<Word> Words { get; set; }
-        public virtual DbSet<Teacher> Teachers { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

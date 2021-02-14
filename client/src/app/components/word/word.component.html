@@ -1,1 +1,23 @@
-<p>word works!</p>
+<body>
+    <mat-toolbar class="a">
+        <button mat-button [routerLink]="['/teacherMain']">
+          <img src="assets/logo/logo.png" style="width: 2cm;">
+        </button>
+        <span class="example-spacer"></span>
+        <button class="btn"  mat-button [routerLink]="['/registerStudents']" routerLinkActive="active">
+          רישום תלמידים
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/studentsDetails']" routerLinkActive="active">
+          תלמידים
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/words']" routerLinkActive="active">
+          מילים
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/statistics']" routerLinkActive="active">
+          ניתוח נתונים וסטטיסטיקה
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/home']" routerLinkActive="active">
+          יציאה
+        </button>
+      </mat-toolbar>
+</body>

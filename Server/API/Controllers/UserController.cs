@@ -25,7 +25,7 @@ namespace API.Controllers
         [Route("RegisterStudent")]
         public IHttpActionResult RegisterStudent(UserDTO student)
         {
-            int studentId = BL.UserBL.RegisterTeacher(student);
+            int studentId = BL.UserBL.RegisterStudent(student);
             return Ok(studentId);
         }
 
@@ -37,6 +37,17 @@ namespace API.Controllers
             fileToSave.SaveAs(path);
             BL.ExtractExcelData.SaveStudents(path);
             return Ok();
+        }
+
+        [Route("Login"), HttpPost]
+        public IHttpActionResult Login([FromBody]UserDTO user)
+        {
+            int u = BL.UserBL.Login(user.Email, user.Password);
+            if (u != -1)
+                return Ok(u);
+            else
+                return Ok(0);
+
         }
     }
 }

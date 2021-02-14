@@ -18,6 +18,7 @@ namespace DAL
         public Word()
         {
             this.StudentsFeedbacks = new HashSet<StudentsFeedback>();
+            this.WordErrors = new HashSet<WordError>();
             this.Weeks = new HashSet<Week>();
         }
     
@@ -30,6 +31,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentsFeedback> StudentsFeedbacks { get; set; }
         public virtual WordCategory WordCategory { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WordError> WordErrors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Week> Weeks { get; set; }
     }

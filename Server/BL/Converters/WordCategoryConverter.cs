@@ -26,7 +26,7 @@ namespace BL.Converters
             {
                 CategoryCode = wordCategory.CategoryCode,
                 CategoryName = wordCategory.CategoryName,
-                MasterCategoryCode = wordCategory.MasterCategoryCode
+                MasterCategoryCode = wordCategory.MasterCategoryCode.Value
             };
         }
 

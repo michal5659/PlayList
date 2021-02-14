@@ -13,23 +13,23 @@ import { StudentsDetailsComponent } from './components/students-details/students
 import { StudentsComponent } from './components/students/students.component';
 import { TeacherMainComponent } from './components/teacher-main/teacher-main.component';
 import { WordComponent } from './components/word/word.component';
+import { RoleGuardGuard } from './shared/services/role-guard.guard';
 
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'login', component: LoginComponent},
   {path:'teacherMain', component: TeacherMainComponent},
-  {path:'studentMain', component: StudentMainComponent},
-  {path:'register', component: RegisterComponent},
-  {path:'registerConfirm', component: RegisterConfirmComponent},
   {path:'registerStudents', component: RegisterStudentComponent},
   {path:'studentsDetails', component: StudentsDetailsComponent},
-  {path:'students', component: StudentsComponent},
   {path:'words', component: WordComponent},
+  {path:'students', component: StudentsComponent},
+  {path:'studentMain', component: StudentMainComponent, },
+  {path:'register', component: RegisterComponent},
+  {path:'registerConfirm/:id', component: RegisterConfirmComponent}, 
   {path:'game', component: GameComponent},
-  {path:'statistics', component: StatisticsComponent},
+  {path:'statistics', component: StatisticsComponent}, 
   {path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule) },
 ];
 
 @NgModule({

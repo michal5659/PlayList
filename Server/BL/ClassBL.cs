@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,10 @@ namespace BL
 {
     public class ClassBL
     {
+        //שליפת הכיתות
+        public static int GetAllClasses()
+        {
+            return 1;
+        }
     }
 }

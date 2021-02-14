@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassDTO.cs" />
+    <Compile Include="GameDataDTO.cs" />
     <Compile Include="GameDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchoolDTO.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="WeekDTO.cs" />
     <Compile Include="WordCategoryDTO.cs" />
     <Compile Include="WordDTO.cs" />
+    <Compile Include="WordError.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

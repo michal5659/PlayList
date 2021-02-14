@@ -1,14 +1,14 @@
 <body>
-    <img src="assets/playthelist2.png" alt="logo" width="75%" style="position: relative; right: 200px; top: 20px;" >
+    <div class="a">
+        <button class="btn" mat-button [routerLink]="['/register']" routerLinkActive="active">
+            הרשמה
+        </button>
+        <button class="btn" mat-button [routerLink]="['/login']" routerLinkActive="active">
+            כניסה
+        </button>
+        </div> 
 </body>
 <footer>
-    <div class="a">
-    <button mat-button [routerLink]="['/register']" routerLinkActive="active">
-        הרשמה
-    </button>
-    <button mat-button [routerLink]="['/login']" routerLinkActive="active">
-        כניסה
-    </button>
-    </div>
+    
 </footer>
 

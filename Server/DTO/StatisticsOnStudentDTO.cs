@@ -17,5 +17,6 @@ namespace DTO
         public Nullable<int> ErrorsForWord { get; set; }
         public Nullable<int> NumOfSuccesses { get; set; }
         public Nullable<int> NumOfCorrections { get; set; }
+        public List<WordErrorDto> WordErrors { get; set; }
     }
 }

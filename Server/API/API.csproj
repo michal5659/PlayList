@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Start\packages.config" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

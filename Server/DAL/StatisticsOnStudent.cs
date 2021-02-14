@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class StatisticsOnStudent
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public StatisticsOnStudent()
+        {
+            this.WordErrors = new HashSet<WordError>();
+        }
+    
         public int GameForStudentCode { get; set; }
         public int WeekCode { get; set; }
         public int StudentCode { get; set; }
@@ -25,7 +31,9 @@ namespace DAL
         public Nullable<int> NumOfCorrections { get; set; }
     
         public virtual Game Game { get; set; }
-        public virtual User User { get; set; }
         public virtual Week Week { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WordError> WordErrors { get; set; }
+        public virtual User User { get; set; }
     }
 }

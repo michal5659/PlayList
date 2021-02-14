@@ -21,7 +21,9 @@ namespace BL.Converters
                 Errors = statistics.Errors,
                 ErrorsForWord = statistics.ErrorsForWord,
                 NumOfSuccesses = statistics.NumOfSuccesses,
-                NumOfCorrections = statistics.NumOfCorrections
+                NumOfCorrections = statistics.NumOfCorrections,
+                WordErrors = statistics.WordErrors.Select(w => new WordError { NumErrors = w.NumErrors, StatistictToStudentsId = w.StatistictToStudentsId, WordId = w.WordId }).ToList()
+
             };
         }
 
@@ -36,7 +38,8 @@ namespace BL.Converters
                 Errors = statistics.Errors,
                 ErrorsForWord = statistics.ErrorsForWord,
                 NumOfSuccesses = statistics.NumOfSuccesses,
-                NumOfCorrections = statistics.NumOfCorrections
+                NumOfCorrections = statistics.NumOfCorrections,
+                WordErrors = statistics.WordErrors.Select(w => new WordErrorDto { NumErrors = w.NumErrors, StatistictToStudentsId = w.StatistictToStudentsId, WordId = w.WordId }).ToList()
             };
         }
 

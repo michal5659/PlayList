@@ -1,3 +1,25 @@
+<body>
+    <mat-toolbar class="a">
+        <button mat-button [routerLink]="['/teacherMain']">
+          <img src="assets/logo/logo.png" style="width: 2cm;">
+        </button>
+        <span class="example-spacer"></span>
+        <button class="btn"  mat-button [routerLink]="['/registerStudents']" routerLinkActive="active">
+          רישום תלמידים
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/studentsDetails']" routerLinkActive="active">
+          תלמידים
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/words']" routerLinkActive="active">
+          מילים
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/statistics']" routerLinkActive="active">
+          ניתוח נתונים וסטטיסטיקה
+        </button>
+        <button class="btn"  mat-button [routerLink]="['/home']" routerLinkActive="active">
+          יציאה
+        </button>
+      </mat-toolbar>
 <div class="hendRegister">
     <form [formGroup]="studentRegisterForm"  (ngSubmit)="register()">                     
         <mat-form-field class="example-full-width">
@@ -32,14 +54,13 @@
 
         <mat-form-field class="example-full-width">
             <mat-label>בית ספר:</mat-label>
-            <input formControlName="schoolCode" matInput [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                  {{option}}
+            <input formControlName="schoolCode" #name matInput [formControl]="myControl" [matAutocomplete]="auto" (input)="_filter(name.value)">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+                <mat-option *ngFor="let option of schoolList" [value]="option.SchoolCode" >
+                  {{option.SchoolName}}
                 </mat-option>
               </mat-autocomplete>
         </mat-form-field>
-
         <mat-form-field class="example-full-width">
             <mat-label>שכבה:</mat-label>
             <input formControlName="layerNumber" matInput>
@@ -50,5 +71,7 @@
 </form> 
 </div>
 <div class="autoRegister">
-    <input type="file" accept=".xls,.xlsx" #students (change)="uploadFile(students)">
+    <input type="file" accept=".xls,.xlsx" mat-raised-button #students (change)="uploadFile(students) ">
 </div>
+
+</body>

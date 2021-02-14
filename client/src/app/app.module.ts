@@ -61,11 +61,13 @@ import { RegisterStudentComponent } from './components/register-student/register
 import { StudentsDetailsComponent } from './components/students-details/students-details.component';
 import { StudentsComponent } from './components/students/students.component';
 import { LoginComponent } from './components/login/login.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
+    GameComponent,
     WordComponent,
     HomeComponent,
     StatisticsComponent,
@@ -83,6 +85,7 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    ChartsModule,
     A11yModule,
     ClipboardModule,
     CdkStepperModule,

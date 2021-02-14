@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators/map';
 import { startWith } from 'rxjs/internal/operators/startWith';
+import { School } from 'src/app/shared/models/school.model';
 import { User } from 'src/app/shared/models/user.model';
+import { SchoolService } from 'src/app/shared/services/school.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -18,10 +20,11 @@ export class RegisterStudentComponent implements OnInit {
   student:User=new User();
 
   myControl = new FormControl();
-  options: string[] = ['1', '2', '3'];
-  filteredOptions: Observable<string[]>;
+  schoolList:School[]=[];
+  filteredOptions: Observable<School[]>; 
+  allSchools:School[]=[];
 
-  constructor(private userService:UserService, private router: Router) 
+  constructor(private userService:UserService, private schoolService: SchoolService , private router: Router) 
   {
     this.studentRegisterForm = new FormGroup({      
       firstName: new FormControl('', Validators.required),
@@ -36,16 +39,11 @@ export class RegisterStudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );  
+    this.getListOfSchool();
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  _filter(value: string){
+    this.schoolList= this.allSchools.filter(option => option.SchoolName.indexOf(value) === 0);
   }
 
   register()
@@ -69,4 +67,9 @@ export class RegisterStudentComponent implements OnInit {
     this.userService.uploadStudentsDetailes(fileInput.files[0]).subscribe();
   }
 
+  getListOfSchool()
+  {
+   this.filteredOptions=  this.schoolService.schoolList()
+   this.schoolService.schoolList().subscribe(res=>{this.allSchools=res; this._filter("")})
+  }
 }

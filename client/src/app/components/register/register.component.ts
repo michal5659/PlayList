@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
       confirmPassword: new FormControl('', Validators.required),      
       email: new FormControl('', Validators.required),
       schoolCode: new FormControl('', Validators.required),
-      layerNumber: new FormControl('')
     })
   }
 
@@ -56,13 +55,12 @@ export class RegisterComponent implements OnInit {
   {
     if(this.registerForm.valid)
     {
-      this.teacher.UserCode=this.registerForm.controls.id.value;
+      //this.teacher.UserCode=this.registerForm.controls.id.value;
       this.teacher.FirstName=this.registerForm.controls.firstName.value;
       this.teacher.LastName=this.registerForm.controls.lastName.value;
       this.teacher.ID=this.registerForm.controls.id.value;
       this.teacher.Password=this.registerForm.controls.password.value;
       this.teacher.Email=this.registerForm.controls.email.value;
-      this.teacher.LayerNumber=this.registerForm.controls.layerNumber.value;
       this.teacher.SchoolCode=this.registerForm.controls.schoolCode.value;
       this.userService.registerTeacher(this.teacher).subscribe(
         res=>alert(res)

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.PlayListEntities">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAACAAAAEAAAAAAAAAAAACEAAAAAAAAACABgAgBAE=</HashCode>
+      <FileName>Model1.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Class">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAACgAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQE=</HashCode>
+      <FileName>Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Game">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAhQAAABAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.School">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAACgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>School.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.StatisticsOnStudent">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABAAAAAAQAAQAQEAAABAAgAAgAIAAAAACAAIAAAQA=</HashCode>
+      <FileName>StatisticsOnStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.StudentsFeedback">
+    <Position X="2" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAAAAAAAgAEAAAAAAAEAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>StudentsFeedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Teacher">
+    <Position X="8" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.User">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAWAAEgAACEAgAAAAAAAAAAAAAAAAAACQAAABAAABAg=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Week">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAABAAAAAgBSA=</HashCode>
+      <FileName>Week.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Word">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAgAAAAAAAAAAAAAAAAAAAACAAAAAAABCEBAAAACE=</HashCode>
+      <FileName>Word.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.WordCategory">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAIAAAAAAAAAABCAAAAAAABAAAAAgAAE=</HashCode>
+      <FileName>WordCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.WordError">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAEAAACAAAAAAAAAIAACAAAAAAA=</HashCode>
+      <FileName>WordError.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -19,7 +19,7 @@ namespace DAL
         public int WordCode { get; set; }
         public int Score { get; set; }
     
-        public virtual User User { get; set; }
         public virtual Word Word { get; set; }
+        public virtual User User { get; set; }
     }
 }

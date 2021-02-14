@@ -1,5 +1,16 @@
+<div class="all">
+    <mat-toolbar class="a">
+        <button mat-button [routerLink]="['/home']">
+          <img src="assets/logo/logo.png" style="width: 2cm;">
+        </button>
+        <span class="example-spacer"></span>
+        <button class="btn" mat-button [routerLink]="['/home']" routerLinkActive="active">
+          יציאה
+        </button>
+      </mat-toolbar>
 <div class="main">     
-    <form [formGroup]="registerForm"  (ngSubmit)="register()">                     
+    <form [formGroup]="registerForm"  (ngSubmit)="register()">
+        <mat-card class="example-card">                    
             <mat-form-field class="example-full-width">
                 <mat-label>שם פרטי:</mat-label>
                 <input formControlName="firstName" matInput>
@@ -8,7 +19,7 @@
             <mat-form-field class="example-full-width">
                 <mat-label>שם משפחה:</mat-label>
                 <input formControlName="lastName" matInput>
-            </mat-form-field> 
+            </mat-form-field>
             
             <mat-form-field class="example-full-width">
                 <mat-label>ת"ז:</mat-label>
@@ -39,17 +50,13 @@
                     </mat-option>
                   </mat-autocomplete>
             </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-                <mat-label>שכבה:</mat-label>
-                <input formControlName="layerNumber" matInput>
-            </mat-form-field>
     <div>
         <button type="submit" mat-raised-button>הרשמה </button>                               
     </div> 
+            </mat-card> 
     </form> 
 </div>
 
-
+</div>
 
         

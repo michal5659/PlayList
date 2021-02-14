@@ -1,16 +1,31 @@
+<body>
+    <mat-toolbar class="a">
+        <button mat-button [routerLink]="['/home']">
+          <img src="assets/logo/logo.png" style="width: 2cm;">
+        </button>
+        <span class="example-spacer"></span>
+      </mat-toolbar>
 <div class="main">
-    <form [formGroup]="loginForm">
-        <mat-form-field class="example-full-width">
-            <mat-label>שם משתמש:</mat-label>
-            <input formControlName="userName" matInput>
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-            <mat-label>סיסמה:</mat-label>
-            <input formControlName="password" matInput>
-        </mat-form-field>
-        <div>
-            <button type="submit" mat-raised-button>כניסה</button>                               
-        </div> 
+    <form [formGroup]="loginForm" (submit)="login()">
+        
+        <mat-card class="example-card">
+                <mat-form-field class="example-full-width">
+                    <mat-label>שם משתמש:</mat-label>
+                    <input formControlName="id" matInput>
+                </mat-form-field>
+        
+                <mat-form-field class="example-full-width">
+                    <mat-label>סיסמה:</mat-label>
+                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                   <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button> -->
+                </mat-form-field>
+            
+            <mat-card-actions class="btn">
+                <button  type="submit" mat-raised-button>כניסה</button> 
+            </mat-card-actions>
+          </mat-card>
     </form>
 </div>
+</body>

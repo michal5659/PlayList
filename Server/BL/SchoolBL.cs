@@ -10,6 +10,7 @@ namespace BL
 {
     public class SchoolBL
     {
+        //שליפת שמות בתי הספר מן המאגר
         public static List<SchoolDTO> GetSchoolList()
         {
             using(PlayListEntities db=new PlayListEntities())

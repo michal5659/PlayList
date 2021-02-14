@@ -36,8 +36,8 @@ namespace DAL
         public virtual ICollection<StatisticsOnStudent> StatisticsOnStudents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentsFeedback> StudentsFeedbacks { get; set; }
+        public virtual Teacher Teacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
-        public virtual Teacher Teacher { get; set; }
     }
 }
