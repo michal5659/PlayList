@@ -18,4 +18,5 @@ namespace DTO
         public int SchoolCode { get; set; }
         public bool IsTeacher { get; set; }
     }
+
 }

@@ -37,7 +37,7 @@ namespace BL.Converters
             u.Email = user.Email;
             if (user.LayerNumber.HasValue)
               u.LayerNumber = user.LayerNumber.Value;
-            u.IsTeacher = user.Teacher != null;
+            u.IsTeacher = !user.LayerNumber.HasValue;
             u.SchoolCode = user.SchoolCode;
             return u;
             

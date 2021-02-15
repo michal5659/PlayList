@@ -46,6 +46,7 @@
     <Compile Include="GameDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchoolDTO.cs" />
+    <Compile Include="StatisticDiagram.cs" />
     <Compile Include="StatisticsOnStudentDTO.cs" />
     <Compile Include="StudentsFeedbackDTO.cs" />
     <Compile Include="UserDTO.cs" />

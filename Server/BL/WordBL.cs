@@ -41,6 +41,7 @@ namespace BL
             using (PlayListEntities db = new PlayListEntities())
             {
                 return Converters.WordConverter.ConvertWordListToDTO(db.Words.ToList());
+
             }
         }
     }

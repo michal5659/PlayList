@@ -42,11 +42,8 @@ namespace API.Controllers
         [Route("Login"), HttpPost]
         public IHttpActionResult Login([FromBody]UserDTO user)
         {
-            int u = BL.UserBL.Login(user.Email, user.Password);
-            if (u != -1)
-                return Ok(u);
-            else
-                return Ok(0);
+            UserDTO u = BL.UserBL.Login(user.ID, user.Password);
+            return Ok(u);
 
         }
     }

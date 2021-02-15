@@ -20,12 +20,12 @@ namespace API.Controllers
             return Ok();
         }
 
-        [Route("Get/{}/{}/{}")]
-        [HttpGet]
-        public IHttpActionResult GET(int classCode,int weekNum,int teacherCode)
-        {
-            return Ok();
-        }
+        //[Route("Get/{}/{}/{}")]
+        //[HttpGet]
+        //public IHttpActionResult GET(int classCode,int weekNum,int teacherCode)
+        //{
+        //    return Ok();
+        //}
 
 
     }

@@ -31,15 +31,16 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    this.user.UserCode = this.loginForm.controls.id.value;
+    this.user.ID = this.loginForm.controls.id.value;
     this.user.Password = this.loginForm.controls.password.value;
     this.userService.login(this.user).subscribe(
       res => {localStorage.setItem('currenUser', res.toString());
-      if(res.IsTeacher)
-      this.router.navigate(['teacher-home'])
-else this.router.navigate(['teacher-home'])
+       if(res.IsTeacher)
+      this.router.navigate(['/teacherMain'])
+else this.router.navigate(['/studentMain']) 
     },
-      err => [console.log()]
+      err => [console.log("user is exist")]
     )
+    console.log(localStorage.getItem('currenUser'))
   }
 }
