@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,13 @@ namespace API.Controllers
             UserDTO u = BL.UserBL.Login(user.ID, user.Password);
             return Ok(u);
 
+        }
+
+        [Route("GetUserById/{userCode}")]
+        public IHttpActionResult GetUserById(string userCode)
+        {
+            //UserDTO u = UserBL.GetUserById(teacherCode);
+            return Ok(UserBL.GetUserById(userCode));
         }
     }
 }

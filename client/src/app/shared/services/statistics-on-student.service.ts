@@ -11,9 +11,21 @@ export class StatisticsOnStudentService {
 
   constructor(private http:HttpClient) { }
 
-  schoolList(teacherCode,classCode,weekNum): Observable<DiagramData>
+  schoolStatistics(teacherCode,classCode,weekNum): Observable<DiagramData>
   {
     return this.http.get<DiagramData>(environment.url+`statistics/classWeek/${classCode}/${teacherCode}/${weekNum}`)
+  }
+
+  classStatistics(classCode)
+  {
+    return this.http.get<DiagramData[]>(environment.url + `statistics/class1/${classCode}`)
+
+  }
+
+  studentStatistics(studentCode)
+  {
+    return this.http.get<DiagramData[]>(environment.url + `statistics/student/${studentCode}`)
+
   }
 
 }

@@ -19,10 +19,16 @@ namespace API.Controllers
             return Ok(WordBL.GetStudentsWords(userId, gameCode));
         }
 
-        
+        [Route("GetWord"),HttpGet]
         public IHttpActionResult GetWord()
         {
             return Ok(WordBL.GetAllWords());
+        }
+
+        [Route("GetWordsById/{categoryNum}"), HttpGet]
+        public IHttpActionResult GetWordsById(int categoryNum)
+        {
+            return Ok(WordBL.GetWordsById(categoryNum));
         }
     }
 }

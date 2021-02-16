@@ -83,6 +83,7 @@
     <Compile Include="SchoolBL.cs" />
     <Compile Include="StatisticsOnStudentBL.cs" />
     <Compile Include="StudentsFeedbackBL.cs" />
+    <Compile Include="TeacherBL.cs" />
     <Compile Include="UserBL.cs" />
     <Compile Include="WeekBL.cs" />
     <Compile Include="WordBL.cs" />

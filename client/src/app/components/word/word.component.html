@@ -1,23 +1,39 @@
 <body>
-    <mat-toolbar class="a">
-        <button mat-button [routerLink]="['/teacherMain']">
-          <img src="assets/logo/logo.png" style="width: 2cm;">
-        </button>
-        <span class="example-spacer"></span>
-        <button class="btn"  mat-button [routerLink]="['/registerStudents']" routerLinkActive="active">
-          רישום תלמידים
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/studentsDetails']" routerLinkActive="active">
-          תלמידים
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/words']" routerLinkActive="active">
-          מילים
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/statistics']" routerLinkActive="active">
-          ניתוח נתונים וסטטיסטיקה
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/home']" routerLinkActive="active">
-          יציאה
-        </button>
-      </mat-toolbar>
+  <mat-toolbar class="a">
+    <button mat-button [routerLink]="['/teacherMain']">
+      <img src="assets/logo/logo.png" style="width: 2cm;">
+    </button>
+    <span class="example-spacer"></span>
+    <button class="btn" mat-button [routerLink]="['/registerStudents']" routerLinkActive="active">
+      רישום תלמידים
+    </button>
+    <button class="btn" mat-button [routerLink]="['/studentsDetails']" routerLinkActive="active">
+      תלמידים
+    </button>
+    <button class="btn" mat-button [routerLink]="['/words']" routerLinkActive="active">
+      מילים
+    </button>
+    <button class="btn" mat-button [routerLink]="['/statistics']" routerLinkActive="active">
+      ניתוח נתונים וסטטיסטיקה
+    </button>
+    <button class="btn" mat-button [routerLink]="['/home']" routerLinkActive="active">
+      יציאה
+    </button>
+  </mat-toolbar>
+
+  <mat-card class="w">
+    <mat-card-content>
+      <section class="example-section">
+        <mat-checkbox *ngFor="let wordCategory of wordCategories" class="example-margin"
+          (click)="selectWord(wordCategory.CategoryCode)">{{wordCategory.CategoryName}}
+          <a class="s"></a>
+          <div >
+            <mat-checkbox *ngFor="let word of wordList" class="example-margin" (click)="selectWord(word.CategoryCode)">
+              {{word.Word}}              
+            </mat-checkbox>
+          </div>
+        </mat-checkbox>
+      </section>
+    </mat-card-content>
+  </mat-card>
 </body>

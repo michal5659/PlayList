@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { User } from 'src/app/shared/models/user.model';
+import { UserService } from 'src/app/shared/services/user.service';
 
 export interface PeriodicElement {
   name: string;
@@ -10,16 +13,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'חיות', weight: 'bear', symbol: 'דב'},
-  {position: 2, name: '', weight: 'cat', symbol: 'חתול'},
-  {position: 3, name: '', weight: 'dog', symbol: 'כלב'},
-  {position: 4, name: '', weight: 'duck', symbol: 'ברווז'},
-  {position: 5, name: '', weight: 'lion', symbol: 'אריה'},
-  {position: 6, name: '', weight: 'rabbit', symbol: 'ארנבת'},
-  {position: 7, name: '', weight: 'bee', symbol: 'דבורה'},
-  {position: 8, name: '', weight: 'fish', symbol: 'דג'},
-  {position: 9, name: '', weight: 'wolf', symbol: 'זאב'},
-  {position: 10, name: '', weight: 'donkey', symbol: 'חמור'},
+  
 ];
 
 @Component({
@@ -29,7 +23,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class StudentsComponent implements OnInit {
 
-
+  det: FormGroup;
+  user: User = new User();
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
@@ -37,11 +32,22 @@ export class StudentsComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    
   }
 
-  constructor() { }
+  constructor(private userService:UserService) {
+    
+   }
 
   ngOnInit(): void {
+    
   }
+
+  GetUserById(userCode)
+  {
+    this.userService.GetUserById(userCode).subscribe((userC: User)=>this.user = userC);
+  }
+
+
 
 }

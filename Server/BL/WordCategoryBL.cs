@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,13 @@ namespace BL
     public class WordCategoryBL
     {
         //שליפת מילים לפי קטגוריה
-        public static int GetWordInCategory(int categoryCode)
+        public static List<WordDTO> GetWordInCategory(int categoryCode)
         {
-            return 1;
+            using (PlayListEntities db = new PlayListEntities())
+            {
+                var wordList = db.Words.Where(w => w.CategoryCode == categoryCode);
+                return Converters.WordConverter.ConvertWordListToDTO(wordList.ToList());
+            }
         }
     }
 }

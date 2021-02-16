@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-   public class StatisticDiagram
+    public class Data
     {
+        public List<int> data { get; set; } = new List<int>();
+
+        public string label { get; set; }
+    }
+    public class StatisticDiagram
+    {
+
+
         public List<string> Labels { get; set; } = new List<string>();
-        public List<string> SubLabels { get; set; } = new List<string>();
-        public List<List<int>> Values { get; set; } = new List<List<int>>();
+        public List<Data> Values { get; set; } = new List<Data>();
 
     }
 }

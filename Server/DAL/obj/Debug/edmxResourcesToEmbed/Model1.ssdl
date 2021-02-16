@@ -22,11 +22,11 @@
       <PropertyRef Name="GameCode" />
     </Key>
     <Property Name="GameCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GameName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="GameName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="MinAgeLayer" Type="int" Nullable="false" />
     <Property Name="MaxAgeLayer" Type="int" Nullable="false" />
-    <Property Name="Instructions" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Link" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Instructions" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Link" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Schools">
     <Key>

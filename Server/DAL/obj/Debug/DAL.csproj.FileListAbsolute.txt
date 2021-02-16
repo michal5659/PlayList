@@ -5,7 +5,6 @@ C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\DAL\bin\Debug\EntityFramework.xml
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\user\Desktop\לימודים\פרוייקט גמר\הפרויקט\Server\DAL\obj\Debug\DAL.dll

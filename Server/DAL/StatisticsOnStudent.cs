@@ -31,9 +31,9 @@ namespace DAL
         public Nullable<int> NumOfCorrections { get; set; }
     
         public virtual Game Game { get; set; }
-        public virtual Week Week { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WordError> WordErrors { get; set; }
-        public virtual User User { get; set; }
+        public virtual Week Week { get; set; }
     }
 }

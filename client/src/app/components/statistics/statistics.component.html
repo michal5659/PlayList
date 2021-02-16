@@ -1,36 +1,64 @@
 <body>
-    <mat-toolbar class="a">
-        <button mat-button [routerLink]="['/teacherMain']">
-          <img src="assets/logo/logo.png" style="width: 2cm;">
-        </button>
-        <span class="example-spacer"></span>
-        <button class="btn"  mat-button [routerLink]="['/registerStudents']" routerLinkActive="active">
-          רישום תלמידים
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/studentsDetails']" routerLinkActive="active">
-          תלמידים
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/words']" routerLinkActive="active">
-          מילים
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/statistics']" routerLinkActive="active">
-          ניתוח נתונים וסטטיסטיקה
-        </button>
-        <button class="btn"  mat-button [routerLink]="['/home']" routerLinkActive="active">
-          יציאה
-        </button>
-      </mat-toolbar>
+  <mat-toolbar class="a">
+      <button mat-button [routerLink]="['/teacherMain']">
+        <img src="assets/logo/logo.png" style="width: 2cm;">
+      </button>
+      <span class="example-spacer"></span>
+      <button class="btn"  mat-button [routerLink]="['/registerStudents']" routerLinkActive="active">
+        רישום תלמידים
+      </button>
+      <button class="btn"  mat-button [routerLink]="['/studentsDetails']" routerLinkActive="active">
+        תלמידים
+      </button>
+      <button class="btn"  mat-button [routerLink]="['/words']" routerLinkActive="active">
+        מילים
+      </button>
+      <button class="btn"  mat-button [routerLink]="['/statistics']" routerLinkActive="active">
+        ניתוח נתונים וסטטיסטיקה
+      </button>
+      <button class="btn"  mat-button [routerLink]="['/home']" routerLinkActive="active">
+        יציאה
+      </button>
+    </mat-toolbar>
 
-   <!--  <div>
-      <div style="display: block">
-          <canvas baseChart
-                  [datasets]="barChartData"
-                  [labels]="barChartLabels"
-                  [options]="barChartOptions"
-                  [legend]="barChartLegend"
-                  [chartType]="barChartType">
-          </canvas>
-        </div>
-      </div>
-      --> 
+
+    <mat-form-field appearance="fill">
+      <mat-label>בחר/י כיתה</mat-label>
+      <mat-select [(ngModel)]="selectedClass" (selectionChange)="updateDataWhenClassChanged()" >
+        <mat-option *ngFor="let c of classList" [value]="c">
+          {{c.ClassName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>בחר/י תלמיד/ה</mat-label>
+      <mat-select [(ngModel)]="selectedStudent" (selectionChange)="updateDataWhenStudentChanged()">
+        <mat-option *ngFor="let s of studentList" [value]="s">
+          {{s.FirstName+" "+s.LastName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>בחר/י שבוע</mat-label>
+      <mat-select [(ngModel)]="selectedWeek">
+        <mat-option *ngFor="let w of WeekList" [value]="w">
+          {{w.Week}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>בחר/י קטגוריה</mat-label>
+      <mat-select [(ngModel)]="selectedCategory">
+        <mat-option *ngFor="let c of CategoryList" [value]="c">
+          {{c.CategoryName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+
+<app-charts *ngIf="classLoded" [categoryDiagram]="categoryDiagram" [weekDiagram]="weekDiagram"></app-charts>
+    
 </body>

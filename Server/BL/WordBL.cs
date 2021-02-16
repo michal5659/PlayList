@@ -44,5 +44,15 @@ namespace BL
 
             }
         }
+
+        public static List<WordDTO> GetWordsById(int categoryNum)
+        {
+
+            using (PlayListEntities db = new PlayListEntities())
+            {
+                return Converters.WordConverter.ConvertWordListToDTO(db.Words.Where(c => c.CategoryCode == categoryNum).ToList());
+
+            }
+        }
     }
 }

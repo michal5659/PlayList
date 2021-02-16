@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { WordComponent } from './components/word/word.component';
 import { GameComponent } from './components/game/game.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -62,6 +62,7 @@ import { StudentsDetailsComponent } from './components/students-details/students
 import { StudentsComponent } from './components/students/students.component';
 import { LoginComponent } from './components/login/login.component';
 import { ChartsModule } from 'ng2-charts';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -77,9 +78,11 @@ import { ChartsModule } from 'ng2-charts';
     RegisterStudentComponent,
     StudentsDetailsComponent,
     StudentsComponent,
-    LoginComponent
+    LoginComponent,
+    ChartsComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

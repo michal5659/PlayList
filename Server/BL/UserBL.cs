@@ -39,8 +39,7 @@ namespace BL
         //מייל אישור רישום לתלמיד
         public static void InviteStudent(UserDTO user)
         {
-            string url = "http://localhost:4200/registerConfirm/" + user.ID;
-            EmailService.SendEmail(user.Email, "היי, שמחים על הרשמתכם ללמידת אנגלית חוויתית", "<a href='"+url+"'> </a>");
+           // EmailService.SendEmail(user.Email);
         }
 
         //בדיקה האם מורה
@@ -61,6 +60,24 @@ namespace BL
                 try
                 {
                     var u = db.Users.Where(l => l.ID == userName && l.Password == password).ToList();
+                    return Converters.UserConverter.ConvertUserToDTO(u[0]);
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine(0);
+                    return null;
+                }
+            }
+        }
+
+        public static UserDTO GetUserById(string userCode)
+        {
+            using (PlayListEntities db = new PlayListEntities())
+            {
+                try
+                {
+                    var u =db.Users.Where(l => l.ID == userCode).ToList();
                     return Converters.UserConverter.ConvertUserToDTO(u[0]);
                 }
 

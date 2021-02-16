@@ -63,13 +63,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Weeks">
-      <EntityTypeMapping TypeName="PlayListModel.Week">
-        <MappingFragment StoreEntitySet="Weeks">
-          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
-          <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
-          <ScalarProperty Name="Week1" ColumnName="Week" />
-          <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PlayListModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+          <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -91,6 +95,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="ClassesForTeachers" TypeName="PlayListModel.ClassesForTeachers" StoreEntitySet="ClassesForTeachers">
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+      </EndProperty>
+      <EndProperty Name="Class">
+        <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Weeks">
+      <EntityTypeMapping TypeName="PlayListModel.Week">
+        <MappingFragment StoreEntitySet="Weeks">
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+          <ScalarProperty Name="Week1" ColumnName="Week" />
+          <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Words">
       <EntityTypeMapping TypeName="PlayListModel.Word">
         <MappingFragment StoreEntitySet="Words">
@@ -108,28 +130,6 @@
       </EndProperty>
       <EndProperty Name="Week">
         <ScalarProperty Name="WeekCode" ColumnName="WeekCode" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="PlayListModel.User">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
-          <ScalarProperty Name="LayerNumber" ColumnName="LayerNumber" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="ClassesForTeachers" TypeName="PlayListModel.ClassesForTeachers" StoreEntitySet="ClassesForTeachers">
-      <EndProperty Name="User">
-        <ScalarProperty Name="UserCode" ColumnName="UserCode" />
-      </EndProperty>
-      <EndProperty Name="Class">
-        <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

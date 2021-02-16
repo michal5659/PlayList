@@ -1,4 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -39,5 +40,28 @@ export class UserService {
      formData.append('file', file);
      return this.http.post<boolean>(environment.url+'user/uploadStudentsDetailes',formData);
 
+  }
+
+  getStudentByTeacher(teacerCode: number, classCode: number)
+  {
+    let params = new HttpParams();
+    //params = params.append('teacherId', teacerCode);
+    params = params.append( 'classId',stringify( classCode));
+
+    return this.http.get(environment.url + "teacher/GetStudentListForTeacher/"+teacerCode+"/"+classCode);
+  }
+
+  GetClassListForTeacher(teacerCode: number)
+  {
+    let params = new HttpParams();
+    //params = params.append('teacherId', teacerCode);
+   // params = params.append( 'classId',stringify( classCode));
+
+    return this.http.get(environment.url + "teacher/GetClassListForTeacher/"+teacerCode);
+  }
+
+  GetUserById(userCode: number)
+  {
+    return this.http.get(environment.url + "user/GetUserById/"+userCode);
   }
 }

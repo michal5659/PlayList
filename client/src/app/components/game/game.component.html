@@ -4,9 +4,7 @@
           <img src="assets/logo/logo.png" style="width: 2cm;">
         </button>
         <span class="example-spacer"></span>
-        <button class="btn" mat-button [routerLink]="['/students']" routerLinkActive="active">
-          פרטים אישיים
-        </button>
+        
         <button class="btn" mat-button [routerLink]="['/game']" routerLinkActive="active">
           תרגול
         </button>
@@ -21,7 +19,9 @@
             </mat-card-header>
             <img mat-card-image src="/assets/image/memoryGame.png">
             <mat-card-actions class="btn">
-                <button type="submit" mat-raised-button>START</button>
+                <a href={{href}}  mat-raised-button>START</a>
+                <!-- <a href="">click</a>type="submit" -->
+                <!-- href={{href}} -->
             </mat-card-actions>
         </mat-card>
 </body>

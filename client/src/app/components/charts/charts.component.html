@@ -1,0 +1,11 @@
+<div  class="chart-wrapper" style="width:30%">
+    <canvas baseChart [datasets]="weekDiagram.Values" [labels]="weekDiagram.Labels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+      <div  class="chart-wrapper" style="width:30%">
+        <canvas baseChart [datasets]="categoryDiagram.Values" [labels]="categoryDiagram.Labels" [options]="lineChartOptions"
+          [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+      </div>
+  

@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.user.ID = this.loginForm.controls.id.value;
     this.user.Password = this.loginForm.controls.password.value;
     this.userService.login(this.user).subscribe(
-      res => {localStorage.setItem('currenUser', res.toString());
+      res => {localStorage.setItem('currenUser',JSON.stringify(res) );
        if(res.IsTeacher)
       this.router.navigate(['/teacherMain'])
 else this.router.navigate(['/studentMain']) 

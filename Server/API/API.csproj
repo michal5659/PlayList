@@ -102,6 +102,7 @@
     <Compile Include="Controllers\SchoolController.cs" />
     <Compile Include="Controllers\StatisticsOnStudentController.cs" />
     <Compile Include="Controllers\StudentsFeedbackController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WeekController.cs" />
     <Compile Include="Controllers\WordCategoryController.cs" />

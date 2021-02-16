@@ -10,6 +10,6 @@ namespace DTO
     {
         public int CategoryCode { get; set; }
         public string CategoryName { get; set; }
-        public int MasterCategoryCode { get; set; }
+        public int? MasterCategoryCode { get; set; }
     }
 }
